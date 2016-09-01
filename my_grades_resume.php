@@ -44,7 +44,7 @@ $courses = enrol_get_users_courses($USER->id, true);
 $table = new html_table();
 $table->head  = array(get_string('course'), get_string('finalgrade', 'grades'));
 $table->data  = array();
-$table->attributes['class'] = 'generaltable';
+$table->attributes['class'] = 'generaltable table-bordered';
 
 foreach ($courses as $c) {
 	$context = context_course::instance($c->id);
@@ -54,6 +54,8 @@ foreach ($courses as $c) {
 	}
 }
 
+echo html_writer::start_tag('div', array('class' => 'grades-resume'));
 echo html_writer::table($table);
+echo html_writer::end_tag('div');
 
 echo $OUTPUT->footer();
