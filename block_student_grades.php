@@ -33,6 +33,10 @@ class block_student_grades extends block_base {
         return true;
     }
 
+    public function applicable_formats() {
+        return array('my' => true);
+    }
+
     function get_content() {
         global $CFG, $USER;
 
